@@ -1,33 +1,20 @@
 package com.example.user.qrcodescanner;
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.provider.MediaStore.Images;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.OutputStream;
+        import android.content.ContentResolver;
+        import android.content.ContentUris;
+        import android.content.ContentValues;
+        import android.graphics.Bitmap;
+        import android.graphics.Matrix;
+        import android.net.Uri;
+        import android.provider.MediaStore;
+        import android.provider.MediaStore.Images;
 
-/**
- * Android internals have been modified to store images in the media folder with
- * the correct date meta data
- *
- * @author samuelkirton
- */
+        import java.io.FileNotFoundException;
+        import java.io.IOException;
+        import java.io.OutputStream;
+
 public class CapturePhotoUtils {
-
-    /**
-     * A copy of the Android internals  insertImage method, this method populates the
-     * meta data with DATE_ADDED and DATE_TAKEN. This fixes a common problem where media
-     * that is inserted manually gets saved at the end of the gallery (because date is not populated).
-     *
-     * @see android.provider.MediaStore.Images.Media#insertImage(ContentResolver, Bitmap, String, String)
-     */
     public static final String insertImage(ContentResolver cr,
                                            Bitmap source,
                                            String title,
@@ -87,12 +74,12 @@ public class CapturePhotoUtils {
      * @see android.provider.MediaStore.Images.Media (StoreThumbnail private method)
      */
     private static final Bitmap storeThumbnail(
-        ContentResolver cr,
-        Bitmap source,
-        long id,
-        float width,
-        float height,
-        int kind) {
+            ContentResolver cr,
+            Bitmap source,
+            long id,
+            float width,
+            float height,
+            int kind) {
 
         // create the matrix to scale it
         Matrix matrix = new Matrix();
@@ -103,9 +90,9 @@ public class CapturePhotoUtils {
         matrix.setScale(scaleX, scaleY);
 
         Bitmap thumb = Bitmap.createBitmap(source, 0, 0,
-            source.getWidth(),
-            source.getHeight(), matrix,
-            true
+                source.getWidth(),
+                source.getHeight(), matrix,
+                true
         );
 
         ContentValues values = new ContentValues(4);
@@ -127,4 +114,5 @@ public class CapturePhotoUtils {
             return null;
         }
     }
+
 }
