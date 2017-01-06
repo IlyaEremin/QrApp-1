@@ -18,6 +18,6 @@ public class FullImageActivity extends AppCompatActivity {
         GalleryActivity.ImageAdapter adapter =new GalleryActivity.ImageAdapter(this);
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setImageResource(adapter.itemList(position));
+        imageView.setImageBitmap(ImageUtils.getBitmapFromFile(adapter.itemList.get(position)));
     }
 }

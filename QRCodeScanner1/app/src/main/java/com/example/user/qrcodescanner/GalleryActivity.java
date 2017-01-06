@@ -101,7 +101,7 @@ public class GalleryActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView = new ImageView(mContext);
-            imageView.setImageResource(itemList.get(position));
+            imageView.setImageBitmap(ImageUtils.getBitmapFromFile(itemList.get(position)));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setLayoutParams(new GridView.LayoutParams(240, 240));
 
