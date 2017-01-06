@@ -13,9 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -50,22 +48,6 @@ public class ReadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "on create called");
         setContentView(R.layout.activity_reading);
-
-        GridView gridView =(GridView) findViewById(R.id.gridView);
-        gridView.setAdapter(new GalleryActivity(this));
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-
-                Intent i = new Intent(getApplicationContext(), FullImageActivity.class);
-                i.putExtra("id", position);
-                startActivity(i);
-
-            }
-        });
-
-
 
         scan_btn = (Button) findViewById(R.id.scan_btn);
         uiResultOfScanIv = (ImageView) findViewById(R.id.result_of_scan);
