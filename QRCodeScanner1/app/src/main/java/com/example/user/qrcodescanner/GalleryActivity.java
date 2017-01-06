@@ -1,8 +1,6 @@
 package com.example.user.qrcodescanner;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -22,7 +20,6 @@ import java.util.ArrayList;
 public class GalleryActivity extends AppCompatActivity {
 
     private ImageAdapter myImageAdapter;
-
 
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +46,6 @@ public class GalleryActivity extends AppCompatActivity {
                 myImageAdapter.add(file.getAbsolutePath());
             }
         }
-
         gridview.setOnItemClickListener(myOnItemClickListener);
 
     }
