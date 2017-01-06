@@ -42,8 +42,12 @@ public class GalleryActivity extends AppCompatActivity {
         File targetDirector = new File(targetPath);
 
         File[] files = targetDirector.listFiles();
-        for (File file : files){
-            myImageAdapter.add(file.getAbsolutePath());
+        // в папке может ничего не быть и тогда files == null
+        // обработай этот случай
+        if (files != null) {
+            for (File file : files){
+                myImageAdapter.add(file.getAbsolutePath());
+            }
         }
 
         gridview.setOnItemClickListener(myOnItemClickListener);
