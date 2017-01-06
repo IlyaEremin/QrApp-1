@@ -68,7 +68,7 @@ public class GalleryActivity extends AppCompatActivity {
         }};
 
 
-    public class ImageAdapter extends BaseAdapter {
+    public static class ImageAdapter extends BaseAdapter {
 
         private Context mContext;
         ArrayList<String> itemList = new ArrayList<String>();
