@@ -28,7 +28,7 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
+        GridView gridview = (GridView) findViewById(R.id.gridView);
         myImageAdapter = new ImageAdapter(this);
         gridview.setAdapter(myImageAdapter);
 
